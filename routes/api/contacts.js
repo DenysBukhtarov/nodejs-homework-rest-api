@@ -1,7 +1,7 @@
 const express = require("express");
 const { NotFound, BadRequest } = require("http-errors");
 const Joi = require("joi");
-
+const router = express.Router();
 const {
   listContacts,
   getContactById,
@@ -10,7 +10,7 @@ const {
   updateContact,
  } = require("../../models/contacts");
 
-const router = express.Router();
+
 
 const contactSchema = Joi.object({
   name: Joi.string().alphanum().min(3).max(30).required(),
