@@ -1,21 +1,29 @@
 const express = require("express");
+
+const ctrl = require("../../controllers/contacts");
+
+const {
+    validateAddContact,
+    validateUpdateContact,
+    validateFieldsContact,
+} = require("../../middlewares");
+
+const {
+    schemaAddContact,
+    schemaUpdateContact,
+    schemaRequiredField,
+} = require("../../validateSchemas/contacts")
+
 const router = express.Router();
-const listContacts = require("../../models/contacts");
-const getById = require("../../models/contacts");
-const addContact = require("../../models/contacts");
-const removeContact = require("../../models/contacts");
-const updateContact = require("../../models/contacts");
-const validateData = require("../../helpers/addValidator");
-const validateUpdateData = require("../../helpers/updateValidator")
 
-router.get("/",listContacts);
+router.get("/",ctrl.listContacts);
 
-router.get("/:contactId", getById);
+router.get("/:contactId", ctrl.getContactById);
 
-router.post("/", validateData, addContact);
+router.post("/", validateAddContact(schemaAddContact), ctrl.addContact);
 
-router.delete("/:contactId", removeContact);
+router.delete("/:contactId", ctrl.removeContact);
 
-router.put("/:contactId", validateUpdateData, updateContact);
+router.put("/:contactId", validateUpdateContact(schemaUpdateContact), validateFieldsContact(schemaRequiredField), ctrl.updateContact);
 
-module.exports = router
+module.exports = router;
