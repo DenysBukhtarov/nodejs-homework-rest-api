@@ -1,12 +1,12 @@
 const Joi = require("joi");
 
 const schemaAddContact = Joi.object({
-    name: Joi.string().require(),
-    email: Joi.string().require(),
-    phone: Joi.string().require(),
+    name: Joi.string().required(),
+    email: Joi.string().required(),
+    phone: Joi.string().required(),
 });
 
-const schemaRequiredCField = Joi.object().keys({
+const schemaRequiredField = Joi.object().keys({
     name: Joi.string().optional(),
     email: Joi.string().optional(),
     phone: Joi.string().optional(),
@@ -15,4 +15,4 @@ const schemaRequiredCField = Joi.object().keys({
 
 const schemaUpdateContact = Joi.object({});
 
-module.exports = {schemaAddContact, schemaRequiredCField, schemaUpdateContact};
+module.exports = {schemaAddContact, schemaRequiredField, schemaUpdateContact};
