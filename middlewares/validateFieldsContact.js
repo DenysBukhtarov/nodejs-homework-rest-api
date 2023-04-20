@@ -11,4 +11,4 @@ const validateFieldsContact = (schema) => {
     return func;
 };
 
-module.exports = validateFieldsContact;
+module.exports = validateFieldsContact ;

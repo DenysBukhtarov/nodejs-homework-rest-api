@@ -1,9 +1,9 @@
 const validateAddContact = require("./validateAddContact");
+const validateUpdateContact = require("./validateUpdateContact");
 const validateFieldsContact = require("./validateFieldsContact");
-const  validateUpdateContact = require("./validateUpdateContact");
 
 module.exports = {
     validateAddContact,
-    validateFieldsContact,
     validateUpdateContact,
+validateFieldsContact,
 }
