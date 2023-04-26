@@ -22,12 +22,23 @@ router.get("/:contactId", isValidId, ctrl.getContactById);
 router.post("/", validateAddContact(schemas.schemaAddContact), ctrl.addContact);
 
 router.path(
-  "/:contactId/favorite"
-)
+  "/:contactId/favorite",
+  isValidId,
+  validateUpdateFavorite(schemas.schemaUpdateContact),
+  validateFieldsFavorite(schemas.schemaUpdateFavorite),
+  ctrl.updateStatusContact
+);
 
-router.delete("/:contactId", ctrl.removeContact);
+router.put("/:contactId", 
+isValidId,
+validateUpdateContact(schemas.schemaUpdateContact), 
+validateFieldsContact(schemas.schemaRequiredField),  
+ctrl.updateContact
+);
 
-router.put("/:contactId", validateUpdateContact(schemaUpdateContact), validateFieldsContact(schemaRequiredField),  ctrl.updateContact);
+router.delete("/:contactId", isValidId, ctrl.removeContact);
+
+
 
 module.exports = router;
 
