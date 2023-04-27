@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const Joi = require("joi");
+
 const contactSchema = new Schema(
   {
     name: {
@@ -41,7 +42,7 @@ const schemaRequiredField = Joi.object()
     .or("name", "email", "phone", "favorite")
     .required();
 
-    const schemaUpdateFavorite = Joi.object({favorite: Joi.boolean().required() });
+    const schemaUpdateFavorite = Joi.object({ favorite: Joi.boolean().required() });
 
     const schemas = {
         schemaAddContact,

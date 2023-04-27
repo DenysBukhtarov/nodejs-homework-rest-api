@@ -21,7 +21,7 @@ router.get("/:contactId", isValidId, ctrl.getContactById);
 
 router.post("/", validateAddContact(schemas.schemaAddContact), ctrl.addContact);
 
-router.path(
+router.patch(
   "/:contactId/favorite",
   isValidId,
   validateUpdateFavorite(schemas.schemaUpdateContact),
@@ -37,8 +37,6 @@ ctrl.updateContact
 );
 
 router.delete("/:contactId", isValidId, ctrl.removeContact);
-
-
 
 module.exports = router;
 
