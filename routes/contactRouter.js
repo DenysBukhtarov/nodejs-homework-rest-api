@@ -9,7 +9,7 @@ validateUpdateContact,
 validateFieldsContact,
 validateUpdateFavorite,
 validateFieldsFavorite,
-} = require("../../middlewares");
+} = require("../middlewares");
 
 const { schemas } = require("../db/models/contactModel");
 
