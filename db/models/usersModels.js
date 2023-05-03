@@ -30,28 +30,20 @@ const usersSchema = new Schema(
   { versionKey: false }
 );
 
-const Contact = model("contact", contactSchema);
 
-const schemaAddContact = Joi.object({
-    name: Joi.string().required(),
-    email: Joi.string().required(),
-    phone: Joi.string().required(),
-    favorite: Joi.boolean().optional(),
+
+const registerSchema = Joi.object({
+    email: Joi.string().pattern(emailRegexp).required(),
+    password: Joi.string().min(5).required(),
+    subcription: Joi.string().valid("starter", "pro", "business").optional(),
 });
 
-const schemaUpdateContact = Joi.object({});
+const loginSchema = Joi.object({
+    email: Joi.string().pattern(emailRegexp).required(),
+    password: Joi.string().min(5).required(),
+});
 
-const schemaRequiredField = Joi.object()
-    .keys({
-    name: Joi.string().optional(),
-    email: Joi.string().optional(),
-    phone: Joi.string().optional(),
-    favorite: Joi.boolean().optional(),
-    })
-    .or("name", "email", "phone", "favorite")
-    .required();
-
-    const subscUpdateSchema = Joi.object({ subcription: Joi.String().valid("starter", "pro", "business").required });
+const subscUpdateSchema = Joi.object({ subcription: Joi.String().valid("starter", "pro", "business").required() });
 
     const schemas = {
         registerSchema,
