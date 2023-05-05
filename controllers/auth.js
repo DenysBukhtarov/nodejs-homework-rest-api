@@ -85,16 +85,25 @@ const login = async (req, res) => {
 
             const updateSubcription = async (req, res) => {
                 const { _id, email } = req.user;
-                con
+                const { subscrition } = req.body;
         
                 const user = await User.findOne({ _id });
                 if(!user) {
                     throw HttpError(401, "Not authorized");
                 }
     
-                await User.findByIdAndUpdate(_id, { token: "" });
+                 user.subscrition = subscrition;
         
-                res.status(204).json();
+                 await User.findByIdAndUpdate()
+                
+                 res.json ({
+                    user: {
+                        email,
+                        subscrition,
+                    },
+                 });
+
+
                 }; 
 
 
