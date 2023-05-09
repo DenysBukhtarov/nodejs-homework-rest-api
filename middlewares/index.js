@@ -4,9 +4,9 @@ const validateFieldsContact = require("./validateFieldsContact");
 const validateUpdateFavorite = require("./validateUpdateFavorite");
 const validateFieldsFavorite = require("./validateFieldsFavorite");
 const isValidId = require("./isValidId");
-const validdateUser = require("./validateUser");
+const validateUser = require("./validateUser");
 const authenticate = require("./authenticate");
-const validateUpdateSuscr = require("./validateUpdateSubscr");
+const validateUpdateSubscr = require("./validateUpdateSubscr");
 
 
 module.exports = {
@@ -16,4 +16,7 @@ module.exports = {
   validateUpdateFavorite,
   validateFieldsFavorite,
   isValidId,
+  validateUser,
+  authenticate,
+  validateUpdateSubscr,
 };

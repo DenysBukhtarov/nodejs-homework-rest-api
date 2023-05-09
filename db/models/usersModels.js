@@ -50,5 +50,7 @@ const subscUpdateSchema = Joi.object({ subcription: Joi.String().valid("starter"
         loginSchema,
         subscUpdateSchema,
     };
+
+    const User = model("user", usersSchema);
  
 module.exports = {User, schemas};
