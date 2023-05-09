@@ -43,7 +43,7 @@ const loginSchema = Joi.object({
     password: Joi.string().min(5).required(),
 });
 
-const subscUpdateSchema = Joi.object({ subcription: Joi.String().valid("starter", "pro", "business").required() });
+const subscUpdateSchema = Joi.object({ subcription: Joi.string().valid("starter", "pro", "business").required() });
 
     const schemas = {
         registerSchema,
