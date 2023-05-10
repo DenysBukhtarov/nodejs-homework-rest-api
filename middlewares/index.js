@@ -1,4 +1,4 @@
-const validateAddContact = require("./validateAddContact ");
+const validateAddContact = require("./validateAddContact")
 const validateUpdateContact = require("./validateUpdateContact");
 const validateFieldsContact = require("./validateFieldsContact");
 const validateUpdateFavorite = require("./validateUpdateFavorite");
